@@ -30,11 +30,14 @@
 </div>
 
 <script>
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    const themeIconPaths = document.getElementById("theme-icon-paths");
+    document.addEventListener("DOMContentLoaded", () => {
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        const themeIconPaths = document.getElementById("theme-icon-paths");
 
-    const moonPaths = `<path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z"></path>`;
-    const sunPaths = `
+        if (!themeToggleBtn || !themeIconPaths) return;
+
+        const moonPaths = `<path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z"></path>`;
+        const sunPaths = `
         <path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
         <path d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" />
         <path d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" />
@@ -46,30 +49,34 @@
         <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
     `;
 
-    const savedTheme =
-        localStorage.getItem("theme") ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
+        const getInitialTheme = () => {
+            const saved = localStorage.getItem("theme");
+            if (saved) return saved;
+            return window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "black"
+                : "light";
+        };
 
-    document.documentElement.setAttribute("data-theme", savedTheme);
-    updateIcon(savedTheme);
+        const savedTheme = getInitialTheme();
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        updateIcon(savedTheme);
 
-    themeToggleBtn.addEventListener("click", () => {
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        themeToggleBtn.addEventListener("click", () => {
+            const currentTheme =
+                document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "black" ? "light" : "black";
 
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        updateIcon(newTheme);
-    });
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+            updateIcon(newTheme);
+        });
 
-    function updateIcon(theme) {
-        if (theme === "dark") {
-            themeIconPaths.innerHTML = sunPaths;
-        } else {
-            themeIconPaths.innerHTML = moonPaths;
+        function updateIcon(theme) {
+            if (theme === "black") {
+                themeIconPaths.innerHTML = sunPaths;
+            } else {
+                themeIconPaths.innerHTML = moonPaths;
+            }
         }
-    }
+    });
 </script>
