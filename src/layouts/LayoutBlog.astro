@@ -1,0 +1,78 @@
+---
+const { frontmatter } = Astro.props;
+import { ClientRouter } from "astro:transitions";
+
+import "@/styles/global.css";
+import HeaderAstroComponent from "@/components/Layout/Header.astro";
+import ADAstroComponent from "@/components/Sections/AD.astro";
+import FooterAstroComponent from "@/components/Layout/Footer.astro";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/png" href="/pibble_favicon.png" />
+        <link rel="icon" href="/pibble_favicon.png" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{frontmatter.title}</title>
+        <ClientRouter />
+    </head><body>
+        <div class="max-w-5xl mx-auto" id="super">
+            <HeaderAstroComponent />
+            <main>
+                <div class="pl-3 pt-20">
+                    <div class="avatar">
+                        <div class="w-30">
+                            <img
+                                src={frontmatter.thumbnail.url}
+                                alt={frontmatter.thumbnail.alt}
+                            />
+                        </div>
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl font-light tracking-tight text-base-content mt-4"
+                    >
+                        {frontmatter.title}
+                    </h1>
+                    <p class="font-light">
+                        <strong class="font-light">Autor: </strong>{
+                            frontmatter.author
+                        }
+                    </p>
+                    <p class="pb-4 font-light">
+                        <strong class="font-light">Fecha: </strong>{
+                            frontmatter.pubDate
+                        }
+                    </p>
+                    <slot />
+                </div>
+
+                <div class="mt-10">
+                    <ADAstroComponent />
+                </div>
+            </main>
+
+            <FooterAstroComponent />
+        </div>
+    </body>
+</html>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Onest:wght@200;300&display=swap");
+
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "Onest", sans-serif;
+    }
+
+    #super {
+        height: 100dvh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+</style>

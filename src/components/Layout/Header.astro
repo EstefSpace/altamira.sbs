@@ -1,7 +1,8 @@
-<div class="navbar">
+<div class="navbar fixed top-0 left-0 right-0 backdrop-blur z-50">
     <div class="flex-1">
         <a
-            class="btn btn-ghost text-xl font-medium text-base-content tracking-tight"
+            href="/"
+            class="btn logo btn-ghost text-xl font-light text-base-content tracking-tight"
         >
             <div class="avatar">
                 <div class="w-6">
@@ -30,7 +31,7 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("astro:page-load", () => {
         const themeToggleBtn = document.getElementById("theme-toggle");
         const themeIconPaths = document.getElementById("theme-icon-paths");
 
