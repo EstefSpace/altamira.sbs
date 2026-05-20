@@ -10,9 +10,9 @@ thumbnail:
 tags: ["programación"]
 ---
 
-<div class="font-light  text-lg text-slate-800 leading-relaxed ">
+<div class="font-light text-lg text-base-content leading-relaxed">
 
-  <blockquote class="border-l-4 border-slate-900 pl-4 mb-12 italic text-lg text-slate-600">
+  <blockquote class="border-l-4 border-base-content pl-4 mb-12 italic text-lg text-base-content/70">
     "De estar en una era de ingenieros que moldeaban software con criterio y destreza intelectual, 
     hemos pasado a una de simples ejecutores que replican código generado por inteligencia artificial 
     para abaratar costos."
@@ -26,7 +26,7 @@ tags: ["programación"]
     Es necesario hacer una confesión: el ecosistema de la programación está sufriendo una 
     <span class="font-semibold">degradación alarmante</span>. Nos hemos inundado de una confianza 
     ignorante que asume que construir una aplicación web "millonaria" en cinco minutos mediante 
-    <code class="bg-slate-100 px-1 rounded text-sm font-mono">Claude Code</code> es sinónimo de 
+    <code class="bg-base-200 px-1 rounded text-sm font-mono">Claude Code</code> es sinónimo de 
     crear algo seguro, escalable o profesional.
   </p>
 
@@ -40,7 +40,7 @@ tags: ["programación"]
     <span class="text-md">— Los Visionarios be like: —</span>
   </div>
 
-  <p class="mb-6 text-xl  text-slate-900">
+  <p class="mb-6 text-xl text-base-content">
     El verdadero costo de la velocidad artificial no se paga en el despliegue, sino en el mantenimiento.
   </p>
 
@@ -50,7 +50,7 @@ tags: ["programación"]
     ha generado. Es una practicamente una paradoja: intentan ahorrar tiempo hoy para hipotecar el futuro del proyecto JAJAJ.
   </p>
 
-  <hr class="border-slate-200 my-10">
+  <hr class="border-base-content/20 my-10">
 
   <p class="mb-6">
     Resulta asqueroso ver cómo, con el paso del tiempo, la generación ciega de código se normaliza. 
